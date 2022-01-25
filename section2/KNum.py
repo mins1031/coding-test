@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open("in_out/chapter2/in3.txt", "rt")
+sys.stdin = open("in_out/section2/chapter2/in3.txt", "rt")
 
 def sol(n, s, e, k):
     a = n[s-1:e]

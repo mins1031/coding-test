@@ -1,7 +1,7 @@
 import sys
 
 
-sys.stdin = open("in_out/chapter3/in5.txt", "rt")
+sys.stdin = open("in_out/section2/chapter4/in1.txt", "rt")
 
 def sol(n, k, temp_list):
     if len(temp_list) != n:
