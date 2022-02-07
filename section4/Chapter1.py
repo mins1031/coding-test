@@ -13,10 +13,8 @@ for i in range(n):
     mid = (lt + rt) // 2
     if n_list[mid] < m:
         lt = mid
-        continue
     elif n_list[mid] > m:
         rt = mid
-        continue
     else:
         result = mid + 1
 
