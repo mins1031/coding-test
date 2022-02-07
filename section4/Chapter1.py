@@ -12,9 +12,9 @@ result = 0
 for i in range(n):
     mid = (lt + rt) // 2
     if n_list[mid] < m:
-        lt = mid
+        lt = mid + 1
     elif n_list[mid] > m:
-        rt = mid
+        rt = mid - 1
     else:
         result = mid + 1
 
