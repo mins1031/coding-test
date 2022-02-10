@@ -1,20 +1,27 @@
 import sys
 
-sys.stdin = open("in_out/chapter4/in2.txt", "rt")
+sys.stdin = open("in_out/chapter4/in5.txt", "rt")
 
 n, c = map(int, input().split())
 magootgan = list()
 for i in range(n):
     magootgan.append(int(input()))
 
-lt = min(magootgan)
-rt = max(magootgan)
-largest = max(magootgan)
+magootgan.sort()
+
+lt = 1
+rt = magootgan[-1]
 result = 0
 while lt <= rt:
     mid = (rt + lt) // 2
-    temp = c * mid
-    if temp > largest:
+    able_line_cnt = 1
+    end = magootgan[0]
+    for i in range(1, n):
+        if (magootgan[i] - end) >= mid:
+            able_line_cnt += 1
+            end = magootgan[i]
+
+    if able_line_cnt < c:
         rt = mid - 1
     else:
         lt = mid + 1
