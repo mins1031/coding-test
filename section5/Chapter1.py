@@ -1,6 +1,6 @@
 import sys
 
-# sys.stdin = open("in_out/chapter1/in1.txt", "rt")
+sys.stdin = open("in_out/chapter1/in2.txt", "rt")
 
 
 n, m = input().split()
@@ -8,19 +8,20 @@ n, m = input().split()
 n = list(map(int, n))
 m = int(m)
 
-temp = [0]
+stack = [n[0]]
 lt = 0
 
-while len(temp) < m:
-    if lt == len(n):
+for i in range(1, len(n)):
+    while stack[-1] < n[i] and stack:
+        stack.pop()
+        m -= 1
+    stack.append(n[i])
+    if m == 0:
+        stack.extend(n[i:])
         break
 
-    if temp[-1] < n[lt]:
-        temp.pop()
-        temp.append(n[lt])
-        lt += 1
-        continue
-    temp.append(n[lt])
-    lt += 1
+for i in stack:
+    print(i, end='')
 
-print(str(temp))
+
+

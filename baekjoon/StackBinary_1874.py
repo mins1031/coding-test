@@ -1,23 +1,28 @@
 n = int(input())
-temp = list()
-stack = list()
+inputs = list()
+stack = [0] * n
 
 for i in range(n):
-    temp.append(int(input()))
+    inputs.append(int(input()))
 
-plus_cnt = 0
+result = list()
+push_cnt = 1
 for i in range(n):
-    standard = temp[i]
-    if plus_cnt < standard:
-        for j in range(plus_cnt+1, standard + 1):
-            print("+")
+    standard = inputs[i]
+    if stack[-1] < standard:
+        for j in range(push_cnt, standard + 1):
+            result.append("+")
             stack.append(j)
         stack.pop()
-        print("-")
-        plus_cnt = temp[i]
+        result.append("-")
+        push_cnt = inputs[i]
+    elif stack[-1] == standard:
+        stack.pop()
+        result.append("-")
     else:
-        if stack[-1] == standard:
-            stack.pop()
-            continue
         print("NO")
-        break
+        exit(0)
+
+for i in result:
+    print(i)
+
