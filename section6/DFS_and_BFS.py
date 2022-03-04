@@ -20,7 +20,6 @@ dfs(깊이우선탐색)의 기본적인 알고리즘 로직 자체는 bfs와 거
 '''
 from collections import deque
 
-
 def bfs(graph, start_node):
     visited = deque()
     need_visit = deque()
