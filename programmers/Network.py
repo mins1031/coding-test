@@ -1,3 +1,4 @@
+from collections import deque
 def solution(n, computers):
     answer = 0
     ch = [0] * n
@@ -15,6 +16,9 @@ def solution(n, computers):
                     net[i] = 1
                     dfs(L+1)
                     ch[i] = 0
+
+    # def bfs():
+
     dfs(0)
     return answer
 

@@ -3,7 +3,6 @@ from collections import deque
 
 sys.stdin = open("in_out/chapter8/in5.txt", "rt")
 
-
 def bfs(n):
     stand = n // 2
     sum = apple_trees[stand][stand]
