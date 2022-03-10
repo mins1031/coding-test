@@ -1,7 +1,7 @@
 import sys
 from collections import deque
 
-sys.stdin = open("in_out/chapter13/in3.txt", "rt")
+sys.stdin = open("in_out/chapter13/in5.txt", "rt")
 
 def bfs(start):
     q = deque([start])
@@ -19,7 +19,6 @@ def bfs(start):
 if __name__ == "__main__":
     n = int(input())
     island = [list(map(int, input().split())) for _ in range(n)]
-    ch = [[0] * n for _ in range(n)]
     move = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, 1), (-1, 1),(1, -1), (1, 1)]
     res = 0
     for i in range(n):
