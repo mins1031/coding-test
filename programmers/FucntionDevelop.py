@@ -53,7 +53,27 @@ def sol(progresses, speeds):
     answer.append(count)
     return answer
 
+def solution(progresses, speeds):
+    answer = []
+    progresses = deque(progresses)
+    speeds = deque(speeds)
+    while progresses:
+        cnt = 0
+        for i in range(len(progresses)):
+            progresses[i] += speeds[i]
+        for _ in range(len(progresses)):
+            if progresses[0] >= 100:
+                progresses.popleft()
+                speeds.popleft()
+                cnt += 1
+        if cnt != 0 :
+            answer.append(cnt)
+    return answer
+
 
 progresses =[95, 90, 99, 99, 80, 99]
+progresses2 = [93, 30, 55]
 speeds =[1,1,1,1,1,1]
-print(sol(progresses, speeds))
+speeds2 = [1, 30, 5]
+
+print(solution(progresses2, speeds2))
