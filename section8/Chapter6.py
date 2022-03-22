@@ -11,20 +11,19 @@ for i in range(n):
 
 brick.sort(reverse=True)
 dy = [0] * n
-dy[0] = brick[0][1]
+dy[0] = (brick[0][1], [brick[0][3]])
 idx = []
 idx.append((1, brick[0][3]))
 for i in range(1, n):
     tmp_max = 0
-    tmp_idx = []
-    cnt = 1
+    tmp_idx = 0
     for j in range(i - 1, -1, -1):
-        if brick[i][2] < brick[j][2] and dy[j] > tmp_max:
-            tmp_max = dy[j]
-            cnt += 1
-            tmp_idx.append(brick[j][3])
-    dy[i] = tmp_max + brick[i][1]
-    idx.append((cnt, tmp_idx))
+        if brick[i][2] < brick[j][2] :
+            if dy[j] > tmp_max:
+                tmp_max = dy[j]
+                tmp_idx = j
+    dy[i] = (tmp_max + brick[i][1], )
+    tmp_idx.append(brick[i][3])
 
 res = dy.index(max(dy))
 print(max(dy))
