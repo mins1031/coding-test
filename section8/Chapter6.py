@@ -22,7 +22,7 @@ for i in range(1, n):
             if dy[j] > tmp_max:
                 tmp_max = dy[j]
                 tmp_idx = j
-    dy[i] = (tmp_max + brick[i][1], )
+    dy[i] = tmp_max + brick[i][1]
     tmp_idx.append(brick[i][3])
 
 res = dy.index(max(dy))
