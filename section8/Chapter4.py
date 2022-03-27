@@ -15,4 +15,8 @@ for i in range(1, n):
                 tmp_max = dy[j]
     dy[i] = tmp_max + 1
 print(max(dy))
+'''
+실패
+'''
+
 
