@@ -29,7 +29,7 @@ bigger = 0
 biggery = 0
 total = 0
 for i in range(small, target+1):
-    if point[]
+    # if point[]
     if point[i][0] > bigger:
         bigger = point[i][0]
         biggery = point[i][1]
