@@ -1,7 +1,7 @@
 def solution(number, k):
     answer = ''
     biggers = []
-    for i in number:
+    # for i in number:
 
 
     return answer
