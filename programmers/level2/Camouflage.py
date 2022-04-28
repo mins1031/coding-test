@@ -10,7 +10,6 @@ def solution(clothes):
                 print(j[0][1])
                 print(j[1][1])
 
-
     return answer
 
 clothes = [["yellowhat", "headgear"], ["bluesunglasses", "eyewear"], ["green_turban", "headgear"]]
