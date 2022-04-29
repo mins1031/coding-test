@@ -21,6 +21,8 @@ def dfs(L, start, k):
     if L == len(dungeons):
         return
     else:
+        for i in range(coin_value[L]+1):
+            dfs(L+1, sum+(coins[L] * i))
 
 # 못함 dfs 다시봐야할듯... 일단 풀이 볼것.
 k = 80
