@@ -1,30 +1,25 @@
+import sys
+import heapq
+
 n = int(input())
 lecture_times = []
 
 for i in range(n) :
-    start, end = input().split(" ")
-    lecture_times.append((int(start), int(end)))
+    start, end = sys.stdin.readline().split(" ")
+    lecture_times.append([int(start), int(end)])
 
-lecture_times.sort(key= lambda x: (x[0], x[1]))
-print(lecture_times)
-is_first = True
+lecture_times.sort()
 
 end_time_list = []
-result = 0
+heapq.heappush(end_time_list, lecture_times[0][1])
 
-for lecture_time in lecture_times :
-    if is_first :
-        end_time_list.append(lecture_time[1])
-        result += 1
-        is_first = False
-        continue
-
-    if lecture_time[0] in end_time_list:
-        end_time_list.append(lecture_time[1])
-        continue
+for i in range(1, n) :
+    min_end_time = end_time_list[0]
+    if lecture_times[i][0] < min_end_time :
+        heapq.heappush(end_time_list, lecture_times[i][1])
     else:
-        end_time_list.append(lecture_time[1])
-        result += 1
-        continue
+        heapq.heappop(end_time_list)
+        heapq.heappush(end_time_list, lecture_times[i][1])
 
-print(result)
+print(len(end_time_list))
+# 종료시간이 리스트에서 유지된다는건 그만큼의 강의실 숫자가 유지된다는 의미이다.
