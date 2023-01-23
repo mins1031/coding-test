@@ -9,7 +9,7 @@ for i in range(n):
 
 lt = 0
 rt = max(lines)
-result = 0
+same_candy_max_count = 0
 while lt <= rt:
     mid = (lt + rt) // 2
 
@@ -19,8 +19,8 @@ while lt <= rt:
 
     if temp_total >= k:
         lt = mid + 1
-        result = mid
+        same_candy_max_count = mid
     else:
         rt = mid - 1
 
-print(result)
+print(same_candy_max_count)

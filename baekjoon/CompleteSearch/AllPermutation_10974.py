@@ -6,9 +6,9 @@ array = []
 for i in range(1, n+1):
     array.append(i)
 
-result = list(permutations(array, n))
+same_candy_max_count = list(permutations(array, n))
 
-for i in result:
+for i in same_candy_max_count:
     for j in i:
         print(j, end=' ')
     print()

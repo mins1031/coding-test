@@ -2,7 +2,7 @@
 
 target_value = int(input())
 
-result = 0;
+same_candy_max_count = 0;
 
 for i in range(1, target_value):
     # if len(str(i)) == 1:
@@ -14,8 +14,8 @@ for i in range(1, target_value):
 
     cipher_sum = sum(map(int, str(i)))
     if i + cipher_sum == target_value :
-        result = i
+        same_candy_max_count = i
         break
 
-print(result)
+print(same_candy_max_count)
 

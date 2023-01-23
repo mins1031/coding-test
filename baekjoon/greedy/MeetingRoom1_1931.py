@@ -10,20 +10,20 @@ print(reservations)
 is_first = True
 
 present_end_time = 0
-result = 0
+same_candy_max_count = 0
 for reservation in reservations :
     if is_first :
         present_end_time = reservation[1]
-        result += 1
+        same_candy_max_count += 1
         is_first = False
         continue
 
     if reservation[0] >= present_end_time:
         present_end_time = reservation[1]
-        result += 1
+        same_candy_max_count += 1
         continue
 
-print(result)
+print(same_candy_max_count)
 
 #5
 #1 100

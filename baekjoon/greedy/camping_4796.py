@@ -1,6 +1,6 @@
 
 case_count = 1
-result = []
+same_candy_max_count = []
 while (True) :
     l, p, v = input().split(" ")
     if l == "0" and p == "0" and v == "0" :
@@ -14,8 +14,8 @@ while (True) :
 
     result_days = (pull_days_count * int(l)) + rest_days
 
-    result.append("Case " + str(case_count) + ": " + str(result_days))
+    same_candy_max_count.append("Case " + str(case_count) + ": " + str(result_days))
     case_count += 1
 
-for i in result :
+for i in same_candy_max_count :
     print(i)

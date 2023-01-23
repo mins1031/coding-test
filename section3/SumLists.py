@@ -35,6 +35,6 @@ n_list = list(map(int, input().split()))
 
 m = int(input())
 m_list = list(map(int, input().split()))
-result = sol(n, m, n_list, m_list)
-for i in result:
+same_candy_max_count = sol(n, m, n_list, m_list)
+for i in same_candy_max_count:
     print(i, end=' ')

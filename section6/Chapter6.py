@@ -4,7 +4,7 @@ sys.stdin = open("in_out/chapter6/in1.txt", "rt")
 
 
 def dfs(L):
-    global result, count
+    global same_candy_max_count, count
     if m == L:
         count += 1
         for i in result:
@@ -19,7 +19,7 @@ def dfs(L):
 if __name__ == "__main__":
     n, m = map(int, input().split())
     intArray = list()
-    result = [0] * m
+    same_candy_max_count = [0] * m
     count = 0
     dfs(0)
     print(count)

@@ -5,18 +5,18 @@ import heapq as hq
 # sys.stdin = open("in_out/chapter10/in3.txt", "rt")
 
 a = []
-result = []
+same_candy_max_count = []
 while True:
     n = sys.stdin.readline()
     if n == -1:
         break
     if n == 0:
         if len(a) == 0:
-            result.append(-1)
+            same_candy_max_count.append(-1)
         else:
-            result.append(hq.heappop(a))
+            same_candy_max_count.append(hq.heappop(a))
     else:
         hq.heappush(a, n)
 
-for i in result:
+for i in same_candy_max_count:
     print(i)

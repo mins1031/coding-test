@@ -26,9 +26,9 @@ str_list = list()
 for i in range(n):
     str_list.append(str(input()))
 
-result = sol(n, str_list)
+same_candy_max_count = sol(n, str_list)
 
-for i in result:
+for i in same_candy_max_count:
     print(i)
 # ============ 강의 코드 ===============
 # size //2 를 해주는 이유는 조건문의 조건에 있다. s[j] != s[-1 - j] 형태는 j가 0 일때 (0과 5를) 1일때 (1과 4를) .... 이렇게 돌기 때문에 결국 중간값보다 하나 작은 수까지만 구하면 된다.

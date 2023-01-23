@@ -21,16 +21,16 @@ for i in range(change_count):
 standard = n // 2
 lt = 0
 rt = n
-result = 0
+same_candy_max_count = 0
 for i in range(n):
     if i < standard:
-        result += sum(gotgams[i][lt:rt])
+        same_candy_max_count += sum(gotgams[i][lt:rt])
         lt += 1
         rt -= 1
 
     else:
-        result += sum(gotgams[i][lt:rt])
+        same_candy_max_count += sum(gotgams[i][lt:rt])
         lt -= 1
         rt += 1
 
-print(result)
+print(same_candy_max_count)

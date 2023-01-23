@@ -11,7 +11,7 @@ magootgan.sort()
 
 lt = 1
 rt = magootgan[-1]
-result = 0
+same_candy_max_count = 0
 while lt <= rt:
     mid = (rt + lt) // 2
     able_line_cnt = 1
@@ -25,6 +25,6 @@ while lt <= rt:
         rt = mid - 1
     else:
         lt = mid + 1
-        result = mid
+        same_candy_max_count = mid
 
-print(result)
+print(same_candy_max_count)

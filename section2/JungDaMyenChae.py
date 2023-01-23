@@ -19,6 +19,6 @@ def sol(n, m):
 
 
 n, m = map(int, input().split())
-result = sol(n, m)
-for i in result:
+same_candy_max_count = sol(n, m)
+for i in same_candy_max_count:
     print(i, end=" ")

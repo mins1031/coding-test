@@ -9,16 +9,16 @@ for i in range(n):
 
 coins.sort(reverse=True)
 temp_k = k
-result = 0
+same_candy_max_count = 0
 for coin in coins :
     if coin > k :
         continue
 
     temp_value = temp_k // coin
     temp_k = temp_k - (coin * temp_value)
-    result += temp_value
+    same_candy_max_count += temp_value
 
-print(result)
+print(same_candy_max_count)
 
 
 

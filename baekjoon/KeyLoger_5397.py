@@ -1,5 +1,5 @@
 test_case = int(input())
-result = list()
+same_candy_max_count = list()
 
 for _ in range(test_case):
     key_input = input()
@@ -25,9 +25,9 @@ for _ in range(test_case):
             password.pop()
             point -= 1
 
-    result.append(password)
+    same_candy_max_count.append(password)
 
-for i in result:
+for i in same_candy_max_count:
     print(''.join(i))
 
 

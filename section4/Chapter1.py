@@ -7,7 +7,7 @@ n_list = list(map(int, input().split()))
 n_list.sort()
 lt = 0
 rt = n
-result = 0
+same_candy_max_count = 0
 
 for i in range(n):
     mid = (lt + rt) // 2
@@ -16,6 +16,6 @@ for i in range(n):
     elif n_list[mid] > m:
         rt = mid - 1
     else:
-        result = mid + 1
+        same_candy_max_count = mid + 1
 
-print(result)
+print(same_candy_max_count)
