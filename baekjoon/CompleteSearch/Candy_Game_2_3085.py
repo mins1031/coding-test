@@ -49,3 +49,6 @@ for i in range(1, n):
 
 print(same_candy_max_count)
 
+'''
+정말 단순하게 
+'''
