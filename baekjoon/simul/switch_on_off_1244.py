@@ -12,41 +12,33 @@ switch = list(map(int, input().split())) # 스위치 값들
 switch.insert(0,0)
 student_count = int(input()) # 학생수
 
-def switching(index) :
+def switching(index) : # 받은 인덱스의 값을 바꾸는 함수
     if switch[index] == 0:
         switch[index] = 1
     else:
         switch[index] = 0
 
 for i in range(student_count):
-    gender, switch_index = map(int, input().split())
-    if gender == 1:
-        for j in range(1, n):
-            target_index = (switch_index * j)
-            if target_index > n :
-                break
-            switching(target_index)
-    else:
-        right_target_index = switch_index
-        left_target_index = switch_index
-        switching(switch_index)
-        for j in range(1, n):
-            right_target_index = right_target_index + 1
-            left_target_index = left_target_index - 1
-            if 1 > left_target_index or n < right_target_index:
+    gender, switch_index = map(int, input().split()) # 학생의 성별과 스위치 인덱스 번호를 입력받는다.
+    if gender == 1: # 남학생의 경우
+        for j in range(switch_index, n, switch_index): # 배수의 인덱스의 내용을 스위칭 해야하기 때문에 스위치 인덱스부터 인덱스 값만큼 늘려가는 포문으로 구현한다.
+            switching(j) # 해당해서 나온 인덱스 위치의 데이터를 스위칭한다.
+    else: # 여학생의 경우
+        switching(switch_index) # 우선 입력받은 위치는 무조건 스위칭이기 때문에 스위치 함수를 호출한다.
+        for j in range(n//2): # 입력받은 인덱스 양쪽 두 위치부터 검사해 가기 때문에 스위치 길이의 / 2 만큼 검사한다.
+            if 1 > (switch_index - j) or n < (switch_index + j): # 만약 적용해보려는 위치가 스위치 길이를 벗어나게 되면 스위칭을 종료 시킨다.
                 break
 
-            if switch[left_target_index] == switch[right_target_index] :
-                switching(left_target_index)
-                switching(right_target_index)
-            else:
+            if switch[switch_index - j] == switch[switch_index + j] : # 만약 양쪽 인덱스 스위치의 값이 같다면 양 스위치 값을 변경하고 포문을 지속한다.
+                switching(switch_index - j)
+                switching(switch_index + j)
+            else: # 만약 양쪽 인덱스 값이 다르다면 스위칭 작업을 종료한다.
                 break
-switch.pop(0)
 
 for i in range(1, n+1):
-    print(switch[i-1], end=" ")
-    if (i % 20) == 0 :
-        print("")
+    print(switch[i], end = " ")
+    if i % 20 == 0 :
+        print()
 
 
 
