@@ -30,7 +30,7 @@ for i in input:
         else:
             stack.append(i)
     else:
-        alpha.append(i)
+        result_string = result_string + i
 
 if len(alpha) != 0:
     for i in alpha:
