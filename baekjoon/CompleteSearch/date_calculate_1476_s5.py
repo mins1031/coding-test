@@ -1,21 +1,29 @@
 e, s, m = map(int, input().split())
 
-e_max = 15
-s_max = 28
-m_max = 19
-
+e_value = 1
+s_value = 1
+m_value = 1
 year = 1
+
 while True:
-    if e == e_max and s == s_max and m == m_max:
-        year = 7980
+    if e_value == e and s_value == s and m_value == m:
         break
 
-    temp_e = year % e_max
-    temp_s = year % s_max
-    temp_m = year % m_max
+    if e_value == 15:
+        e_value = 1
+    else:
+        e_value += 1
 
-    if temp_e == e and temp_s == s and temp_m == m:
-        break
+    if s_value == 28:
+        s_value = 1
+    else:
+        s_value += 1
+
+    if m_value == 19:
+        m_value = 1
+    else:
+        m_value += 1
+
 
     year += 1
 
