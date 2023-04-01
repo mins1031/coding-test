@@ -1,31 +1,25 @@
 n, m = map(int, input().split())
-dud = []
-bo = []
+dud_bo = []
 
-for i in range(n):
-    dud_word = input()
-    dud.append(dud_word)
+for i in range(n + m):
+    dud_bo_word = input()
+    dud_bo.append(dud_bo_word)
 
-for i in range(m):
-    bo_word = input()
-    bo.append(bo_word)
+current_word = ""
+repeat_count = 0
+result = set()
+dud_bo.sort()
+for i in dud_bo:
+    if i == current_word:
+        result.add(i)
 
-dud.extend(bo)
-x = []
-result = []
+    current_word = i
 
-for i in range(len(dud)):
-    if i == 0:
-        x.append(dud[i])
-
-    if dud[i] in x :
-        result.append(dud[i])
-    else:
-        x.append(dud[i])
-
-result = list(set(result))
+result = list(result)
 print(len(result))
-result.sort()
 for i in result:
     print(i)
+
+
+
 
