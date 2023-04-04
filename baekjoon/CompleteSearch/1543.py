@@ -14,9 +14,10 @@ for i in range(document_length - (word_length - 1)):
             if document[document_index] != word[j] or check_document[document_index] != 0:
                 break
             elif document[document_index] == word[j] and check_document[document_index] == 0:
-                check_document[document_index] = 1
                 document_index += 1
         else:
+            for k in range(i, i+word_length):
+                check_document[k] = 1
             result += 1
 
 print(result)
