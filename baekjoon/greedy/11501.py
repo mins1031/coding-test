@@ -3,21 +3,38 @@ test = int(input())
 for _ in range(test):
     days = int(input())
     price = list(map(int, input().split()))
-    max_value = max(price)
-    sells = []
+    max = price[-1]
     result = 0
 
-    for i in range(days):
-        if price[i] == max_value:
-            for j in sells:
-                result += abs(price[i] - j)
-            sells = []
+    for i in range(days - 2, -1, -1):
+        if price[i] > max:
+            max = price[i]
         else:
-            if i + 1 == days:
-
-            sells.append(price[i])
+            result += max - price[i]
 
     print(result)
+
+# 시간초과
+# f
+# or _ in range(test):
+#     days = int(input())
+#     price = list(map(int, input().split()))
+#     max_value = max(price)
+#     max_index = price.index(max_value)
+#     sells = []
+#     result = 0
+#
+#     for i in range(days):
+#         if price[i] == max_value:
+#             for j in sells:
+#                 result += abs(price[i] - j)
+#             sells = []
+#             if i != days - 1:
+#                 max_value = max(price[i+1:])
+#         else:
+#             sells.append(price[i])
+#
+#     print(result)
 
 # 3
 # 3
