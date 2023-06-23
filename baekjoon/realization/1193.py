@@ -28,5 +28,5 @@ while True:
             back_val -= 1
 
     count += 1
-sad
+
 print(str(front_val) + "/" + str(back_val))
