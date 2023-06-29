@@ -31,11 +31,11 @@ def calculate_target_point(king_x_point, king_y_point, input_x, input_y):
 
 
 def check_out_board(check_point):
-    return check_point[0] < 1 or check_point[1] < 1
+    return check_point[0] < 1 or check_point[1] < 1 or check_point[0] > 8 or check_point[1] > 8
 
 
 def check_overlap_stone_point(temp_target_king_point):
-    return temp_target_king_point[0] == point_value[stone_point[0]] and temp_target_king_point[1] == int(stone_point[1])
+    return temp_target_king_point[0] == present_stone_x_point and temp_target_king_point[1] == present_stone_y_point
 
 def find_key_by_value_in_point_value(x_point):
     for key, value in point_value.items():
@@ -67,27 +67,33 @@ directions = {
 
 king_point, stone_point, k = input().split()
 
+present_king_x_point = point_value[king_point[0]]
+present_king_y_point = int(king_point[1])
+
+present_stone_x_point = point_value[stone_point[0]]
+present_stone_y_point = int(stone_point[1])
+
 for i in range(int(k)):
-    input_dir = input()
+    input_dir = input() ## 1. 방향 받음
     move_x_value = directions[input_dir][0]
-    move_y_value = directions[input_dir][1]
+    move_y_value = directions[input_dir][1] ## 방향의 x,y 증감값 추출
 
-    temp_target_king_point = calculate_target_point(point_value[king_point[0]], king_point[1], move_x_value, move_y_value)
-    if check_out_board(temp_target_king_point):
-        king_point = find_key_by_value_in_point_value(point_value[king_point[0]]) + str(king_point[1])
-        stone_point = find_key_by_value_in_point_value(point_value[stone_point[0]]) + str(stone_point[1])
-        continue
+    temp_target_king_point = calculate_target_point(present_king_x_point, present_king_y_point, move_x_value, move_y_value) ## 2. 목표값 계산
+    if check_out_board(temp_target_king_point): # 목표값이 보드 밖으로 나가는지 파악
+        continue # 다음 인덱스 수행
 
-    if check_overlap_stone_point(temp_target_king_point):
-        temp_target_stone_point = calculate_target_point(point_value[stone_point[0]], stone_point[1], move_x_value,
-                                                         move_y_value)
-        if check_out_board(temp_target_stone_point):
+    if check_overlap_stone_point(temp_target_king_point): # 목표값 == 현재 돌 위치값 인경지 아닌지
+        temp_target_stone_point = calculate_target_point(present_stone_x_point, present_stone_y_point, move_x_value,move_y_value) # 돌의 목표값 계산.
+        if check_out_board(temp_target_stone_point): # 이동된 돌의 목표값이 보드 밖으로 나가는지 파악
             continue
-        king_point = find_key_by_value_in_point_value(point_value[temp_target_king_point[0]]) + str(temp_target_king_point[1])
-        stone_point = find_key_by_value_in_point_value(point_value[temp_target_stone_point[0]]) + str(temp_target_stone_point[1])
-    else:
-        king_point = find_key_by_value_in_point_value(point_value[temp_target_king_point[0]]) + str(temp_target_king_point[1])
-        stone_point = find_key_by_value_in_point_value(point_value[stone_point[0]]) + str(stone_point[1])
 
-print(king_point)
-print(stone_point)
+        present_king_x_point = temp_target_king_point[0]
+        present_king_y_point = temp_target_king_point[1]
+        present_stone_x_point = temp_target_stone_point[0]
+        present_stone_y_point = temp_target_stone_point[1]
+    else:
+        present_king_x_point = temp_target_king_point[0]
+        present_king_y_point = temp_target_king_point[1]
+
+print(find_key_by_value_in_point_value(present_king_x_point) + str(present_king_y_point))
+print(find_key_by_value_in_point_value(present_stone_x_point) + str(present_stone_y_point))
